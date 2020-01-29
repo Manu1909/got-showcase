@@ -9,7 +9,7 @@ import { RestApiService } from 'src/app/services/rest-api.service';
 })
 export class HouseListComponent implements OnInit {
 
-  houseList: House[];  
+  houses: House[];  
 
   constructor(public restApi: RestApiService) { }
 
@@ -19,7 +19,7 @@ export class HouseListComponent implements OnInit {
 
   private loadHouses() {
     this.restApi.getHouses().subscribe((data: House[]) => {
-      this.houseList = data;
+      this.houses = [...data];
     });
   }
 

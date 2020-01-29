@@ -1,34 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
 import { House } from '../models/house';
+import { environment } from '../../environments/environment';
+
+const API_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestApiService {
 
-  private apiUrl = 'https://anapioficeandfire.com/api'
   private httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin':'*',
       'Content-Type': 'application/json'
     })
   }
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   public getHouses(): Observable<House[]> {
-    return this.httpClient.get<House[]>(this.apiUrl + '/houses', this.httpOptions)
+    return this.http.get<House[]>(API_URL + '/houses')
       .pipe(
         retry(1),
         catchError(this.handleError)
-      )
+      );
   }
 
+
   public getHouseById(id: number): Observable<House> {
-    return this.httpClient.get<House>(this.apiUrl + '/houses/' + id)
+    return this.http.get<House>(API_URL + '/houses/' + id)
       .pipe(
         retry(1),
         catchError(this.handleError)

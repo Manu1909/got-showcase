@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RestApiService } from '../../services/rest-api.service';
 import { House } from '../../models/house';
 
@@ -9,19 +9,12 @@ import { House } from '../../models/house';
 })
 export class HouseComponent implements OnInit {
 
-  house: House;
-  id: number;
-
-  constructor(public restApi: RestApiService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.loadHouse();
   }
 
   private loadHouse() {
-    return this.restApi.getHouseById(this.id).subscribe((data: House) => {
-      this.house = data;
-    });
   }
 
 }
