@@ -1,10 +1,17 @@
-<div>
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let house of houses; let i = index">
-      <div class="card">
-        <div class="card-body">
-          <a routerLink="/house-detail/{{i + 1}}">{{house.name}}</a>
-        </div>
+<div class="row">
+  <div class="col-md-4" *ngFor="let house of houses; let i = index">
+    <div class="card mb-4 shadow-sm">
+      <div class="bd-placeholder-img card-img-top card-image-container">
+        <img src="../../../assets/icons/card-icons/house{{i + 1}}.png" width="100%"  />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{house.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{house.region}}</h6>
+        <p class="card-text">
+          This is a wider card with supporting text below as a natural lead-in to additional content. 
+          This content is a little bit longer.
+        </p>
+        <a routerLink="/house-detail/{{i + 1}}" class="btn btn-primary">Show details</a>
       </div>
     </div>
   </div>
