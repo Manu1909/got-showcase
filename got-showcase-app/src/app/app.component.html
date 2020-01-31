@@ -1,3 +1,58 @@
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<header>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand">
+      <img src="../assets/icons/header_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Game of Thrones - Showcase
+    </a>
+    <img src="../assets/icons/flame.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+  </nav>
+</header>
+
+<main role="main">
+  <section class="jumbotron jumbotron-fluid text-center">
+    <div class="container" class="d-inline-block align-top" >
+      <div class="cotainer banner-container">
+        <img src="../assets/banner/got_logo.svg" width="300">
+      </div>
+      <h2>House collection</h2>
+      <p class="lead text-muted">
+        This application presents all houses of Game of Thrones.
+        By clicking on a single house the application shows a information page with detailed information
+        to the specific house.
+      </p>
+    </div>
+  </section>
+  <div class="container album-container">
+    <router-outlet></router-outlet>
+  </div>  
+</main>
+
+<footer class="footer bg-light">
+ <div class="container text-muted">
+   <div class="float-right">
+    <p style="margin-bottom: 0px">License:</p>
+    <span><a href="https://opensource.org/licenses/mit-license.php">MIT License</a></span>
+   </div>
+  
+   <p>
+     <a href="https://github.com/Manu1909/got-showcase">GoT - Showcase app</a>
+   </p>
+   <p>Created by Manuel Entenmann:</p>
+
+   <div class="footer-social-container">
+      <div class="icon-container">
+        <img src="../assets/icons/github.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="../assets/icons/twitter.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      </div>
+      <div class="content-container">
+        <a href="https://github.com/Manu1909">Manu1909</a>
+        <a href="https://twitter.com/_ME_83">_ME_83</a> 
+      </div>
+   </div>
+
+ </div>
+</footer>
+
+
+
+  

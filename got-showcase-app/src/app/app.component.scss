@@ -1,0 +1,35 @@
+main {
+    .banner-container {
+        padding-bottom: 2rem;
+    }
+
+    .album-container {
+      padding-bottom: 3rem;
+  } 
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    .footer-social-container {
+        display: flex;
+
+        .icon-container,
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            img,
+            a {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .content-container {
+            margin-left: 0.5rem;
+        }
+    }
+
+}
