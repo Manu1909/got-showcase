@@ -1,4 +1,23 @@
+.search-container {
+    margin-bottom: 3rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
 .card-image-container {
     background: lightgrey;
     padding: 2rem;
+}
+
+.card:hover {
+    border-color: darkgrey;
+}
+
+@media (min-width: 768px) { 
+    .search-container {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
 }

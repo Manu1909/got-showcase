@@ -10,6 +10,7 @@ import { RestApiService } from 'src/app/services/rest-api.service';
 export class HouseListComponent implements OnInit {
 
   houses: House[];  
+  houseName: string;
 
   constructor(public restApi: RestApiService) { }
 
