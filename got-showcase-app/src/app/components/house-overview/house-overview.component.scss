@@ -1,5 +1,6 @@
 .overview-container {
     display: flex;
+    flex-direction: column;
 }
 
 .detail-container {
@@ -23,5 +24,11 @@
     &.ice:hover {
         border-color: paleturquoise;
         cursor: pointer;
+    }
+}
+
+@media (min-width: 768px) { 
+    .overview-container {
+      flex-direction: row;
     }
 }
