@@ -1,0 +1,27 @@
+.overview-container {
+    display: flex;
+}
+
+.detail-container {
+    padding: 2rem;
+    margin-right: 1rem;
+    border: 1px solid lightgrey;
+
+    h4 {
+        font-family: 'got-font', Arial, Helvetica, sans-serif;
+    }
+
+    img {
+        margin-bottom: 1rem;
+    }
+
+    &.fire:hover {
+      border-color: orange;
+      cursor: pointer;
+    }
+
+    &.ice:hover {
+        border-color: paleturquoise;
+        cursor: pointer;
+    }
+}

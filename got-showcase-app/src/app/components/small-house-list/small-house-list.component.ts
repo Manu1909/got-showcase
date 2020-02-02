@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from '../../models/house';
-import { RestApiService } from 'src/app/services/rest-api.service';
+import { RestApiService } from '../../../app/services/rest-api.service';
 
 @Component({
-  selector: 'app-house-list',
-  templateUrl: './house-list.component.html',
-  styleUrls: ['./house-list.component.scss']
+  selector: 'app-small-house-list',
+  templateUrl: './small-house-list.component.html',
+  styleUrls: ['./small-house-list.component.scss']
 })
-export class HouseListComponent implements OnInit {
+export class SmallHouseListComponent implements OnInit {
 
   houses: House[];  
   houseName: string;

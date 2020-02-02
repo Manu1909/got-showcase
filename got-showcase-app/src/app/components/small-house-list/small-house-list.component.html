@@ -1,0 +1,26 @@
+<div class="container search-container">
+    <input class="form-control" 
+           type="text" 
+           placeholder="Search for a House" 
+           aria-label="Search"
+           [(ngModel)]="houseName">
+  </div>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let house of houses | search: houseName; let i = index">
+      <div class="card">
+        <div class="bd-placeholder-img card-img-top card-image-container">
+          <img src="../../../assets/icons/card-icons/house{{house.url.slice(-2).replace('/', '')}}.png" width="100%" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{house.name.replace('House', '')}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{house.region}}</h6>
+          <p class="card-text">
+            {{house.name}} is based in the {{house.region.toLocaleLowerCase()}} and represented
+            by the presented coat of arms above.
+            For more details click on the button below.
+          </p>
+          <a routerLink="/house-detail/{{house.url.slice(-2).replace('/', '')}}" class="btn btn-dark">Show details</a>
+        </div>
+      </div>
+    </div>
+  </div>
