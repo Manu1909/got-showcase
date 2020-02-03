@@ -19,13 +19,13 @@
             <dd class="col-sm-9 first"><p *ngFor="let seat of house.seats">{{seat}}</p></dd>
 
             <dt class="col-sm-3 second">Current lord</dt>
-            <dd class="col-sm-9 second"><p>{{currentLord.name}}</p></dd>
+            <dd class="col-sm-9 second"><p>{{currentLord ? currentLord.name : '-'}}</p></dd>
 
             <dt class="col-sm-3 first">Heir</dt>
-            <dd class="col-sm-9 first"><p>{{heir.name}}</p></dd>
+            <dd class="col-sm-9 first"><p>{{heir ? heir.name : '-'}}</p></dd>
 
             <dt class="col-sm-3 second">Overlord</dt>
-            <dd class="col-sm-9 second"><p>{{overLord.name}}</p></dd>
+            <dd class="col-sm-9 second"><p>{{overLord ? overLord.name : '-'}}</p></dd>
 
             <dt class="col-sm-3 first">Ancestral Weapons</dt>
             <dd class="col-sm-9 first"><p *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</p></dd>
