@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
 import { House } from '../models/house';
 import { environment } from '../../environments/environment';
+import { Character } from '../models/character';
 
 const API_URL = environment.apiUrl;
 
@@ -31,6 +32,22 @@ export class RestApiService {
 
   public getHouseById(id: number): Observable<House> {
     return this.http.get<House>(API_URL + '/houses/' + id)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  public getHouseByUrl(url: string): Observable<House> {
+    return this.http.get<House>(url)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  public getCharacterByUrl(url: string): Observable<Character> {
+    return this.http.get<Character>(url)
       .pipe(
         retry(1),
         catchError(this.handleError)

@@ -1,7 +1,61 @@
-<div *ngIf="house">
+<div class="container main-container" *ngIf="house">
+    <img src="../../../assets/icons/card-icons/house{{house.url.slice(-2).replace('/', '')}}.png" width="150" />
     <h3>{{house.name}}</h3>
-    <div class="row">
-      
+    <div class="container value-container" *ngIf="dataIsLoaded">
+        <dl class="row">
+            <dt class="col-sm-3 first">Region</dt>
+            <dd class="col-sm-9 first"><p>{{house.region}}</p></dd>
+        
+            <dt class="col-sm-3 second">Coat of arms</dt>
+            <dd class="col-sm-9 second"><p>{{house.coatOfArms}}</p></dd>
+
+            <dt class="col-sm-3 first">Words</dt>
+            <dd class="col-sm-9 first"><p>{{house.words}}</p></dd>
+
+            <dt class="col-sm-3 second">Titles</dt>
+            <dd class="col-sm-9 second"><p *ngFor="let title of house.titles">{{title}}</p></dd>
+        
+            <dt class="col-sm-3 first">Seats</dt>
+            <dd class="col-sm-9 first"><p *ngFor="let seat of house.seats">{{seat}}</p></dd>
+
+            <dt class="col-sm-3 second">Current lord</dt>
+            <dd class="col-sm-9 second"><p>{{currentLord.name}}</p></dd>
+
+            <dt class="col-sm-3 first">Heir</dt>
+            <dd class="col-sm-9 first"><p>{{heir.name}}</p></dd>
+
+            <dt class="col-sm-3 second">Overlord</dt>
+            <dd class="col-sm-9 second"><p>{{overLord.name}}</p></dd>
+
+            <dt class="col-sm-3 first">Ancestral Weapons</dt>
+            <dd class="col-sm-9 first"><p *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</p></dd>
+
+            <dt class="col-sm-3 second">Cadet Branches</dt>
+            <dd class="col-sm-9 second"><p *ngFor="let cadetBranch of house.cadetBranches">{{cadetBranch}}</p></dd>
+
+            <dt class="col-sm-3 first">Sworn member</dt>
+            <dd class="col-sm-9 first"><p *ngFor="let swornMember of swornMembers">{{swornMember.name}}</p></dd>
+        </dl>
+
     </div>
 </div>
 
+
+
+<!-- {url: "https://anapioficeandfire.com/api/houses/1", name: "House Algood", region: "The Westerlands", coatOfArms: "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)", words: "", …}
+url: "https://anapioficeandfire.com/api/houses/1"
+name: "House Algood"
+region: "The Westerlands"
+coatOfArms: "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
+words: ""
+titles: [""]
+seats: [""]
+currentLord: ""
+heir: ""
+overlord: "https://anapioficeandfire.com/api/houses/229"
+founded: ""
+founder: ""
+diedOut: ""
+ancestralWeapons: [""]
+cadetBranches: []
+swornMembers: [] -->
