@@ -16,23 +16,12 @@
 .value-container {
     margin-top: 2rem;
 
-    dt {
-        padding: 1rem;
+    .table-header {
+      font-family: 'got-font', Arial, Helvetica, sans-serif;
+      font-size: 1em;
     }
 
-    dd {
-        margin-bottom: 0px;
-
-        p {
-            margin-bottom: 0px;
-        }
-    }
-
-    .first {
-        background: lightgrey;
-    }
-
-    .second {
-        background: white;
+    p {
+      margin: 0px;
     }
 }

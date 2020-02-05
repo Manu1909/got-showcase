@@ -1,4 +1,10 @@
 main {
+
+    .jumbotron {
+      padding: 2rem;
+      margin-bottom: 0;
+    }
+
     .jumbotron .container {
         max-width: 40rem;
     }
@@ -8,8 +14,9 @@ main {
     }
 
     .album-container {
+      padding-top: 2rem;
       padding-bottom: 3rem;
-  } 
+  }
 }
 
 footer {
@@ -19,6 +26,7 @@ footer {
     .footer-social-container {
         display: flex;
 
+        .creator-container,
         .icon-container,
         .content-container {
             display: flex;
@@ -34,6 +42,10 @@ footer {
         .content-container {
             margin-left: 0.5rem;
         }
+    }
+
+    .creator-container {
+      margin-right: 1.5rem;
     }
 
 }
