@@ -29,6 +29,9 @@ export class HouseDetailComponent implements OnInit {
     this.loadHouseDetails(id);
   }
 
+  ngOnDestroy() {
+  }
+
   private loadHouseDetails(id: number) {
     this.restApi.getHouseById(id).subscribe((val: House) => {
       this.house = val; 
@@ -40,30 +43,46 @@ export class HouseDetailComponent implements OnInit {
   }
 
   private loadCurrentLord(url: string) {
-    this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
-      this.currentLord = val;
-    });
+    if (url !== '') {
+      this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
+        this.currentLord = val;
+      });
+    } else {
+      this.currentLord = undefined;
+    }
   }
 
   private loadHeir(url: string) {
-    this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
-      this.heir = val;
-    });
+    if (url !== '') {
+      this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
+        this.heir = val;
+      });
+    } else {
+      this.heir = undefined;
+    }
   }
 
   private loadOverlord(url: string) {
-    this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
-      this.overLord = val;
-    });
+    if (url !== '') {
+      this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
+        this.overLord = val;
+      });
+    } else {
+      this.loadOverlord = undefined;
+    }
   }
 
   private loadSwornMembers(urls: string[]) {
-    urls.forEach(url => {
-      this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
-        this.swornMembers.push(val);
-        this.dataIsLoaded = true;
-      });
-    })
+    if (urls.length !== 0) {
+      urls.forEach(url => {
+        this.restApi.getCharacterByUrl(url).subscribe((val: Character) => {
+          this.swornMembers.push(val);
+          this.dataIsLoaded = true;
+        });
+      })
+    } else {
+      this.dataIsLoaded = true;
+    }
   
   }
 
