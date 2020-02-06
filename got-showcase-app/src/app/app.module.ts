@@ -10,8 +10,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CommonModule } from '@angular/common';
 import { SearchPipe } from './pipes/search.pipe';
 import { HouseOverviewComponent } from './components/house-overview/house-overview.component';
-import { MainHouseListComponent } from './components/main-house-list/main-house-list.component';
-import { SmallHouseListComponent } from './components/small-house-list/small-house-list.component';
+import { HouseListComponent } from './components/house-list/house-list.component';
+import { HouseCardComponent } from './components/house-card/house-card.component';
+import { LoadingContainerComponent } from './components/loading-container/loading-container.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -20,15 +25,18 @@ import { SmallHouseListComponent } from './components/small-house-list/small-hou
     PageNotFoundComponent,
     SearchPipe,
     HouseOverviewComponent,
-    MainHouseListComponent,
-    SmallHouseListComponent
+    HouseListComponent,
+    HouseCardComponent,
+    LoadingContainerComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

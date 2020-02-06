@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainHouseListComponent } from './main-house-list.component';
+import { LoadingContainerComponent } from './loading-container.component';
 
-describe('MainHouseListComponent', () => {
-  let component: MainHouseListComponent;
-  let fixture: ComponentFixture<MainHouseListComponent>;
+describe('LoadingContainerComponent', () => {
+  let component: LoadingContainerComponent;
+  let fixture: ComponentFixture<LoadingContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainHouseListComponent ]
+      declarations: [ LoadingContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainHouseListComponent);
+    fixture = TestBed.createComponent(LoadingContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

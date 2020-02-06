@@ -1,0 +1,16 @@
+.search-container {
+  margin-bottom: 3rem;
+}
+
+.row {
+  min-height: 500px;
+  max-height: 1500px;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .search-container {
+      padding-left: 10rem;
+      padding-right: 10rem;
+  }
+}

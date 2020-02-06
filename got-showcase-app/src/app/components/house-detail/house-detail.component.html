@@ -1,41 +1,77 @@
 <div class="container main-container" *ngIf="house">
-    <img src="../../../assets/icons/card-icons/house{{house.url.slice(-2).replace('/', '')}}.png" width="150" />
+    <img src="../../../assets/icons/card-icons/house{{id > 10 ? 3 : id}}.png" width="150" />
     <h3>{{house.name}}</h3>
     <div class="container value-container" *ngIf="dataIsLoaded">
-        <dl class="row">
-            <dt class="col-sm-3 first">Region</dt>
-            <dd class="col-sm-9 first"><p>{{house.region}}</p></dd>
-        
-            <dt class="col-sm-3 second">Coat of arms</dt>
-            <dd class="col-sm-9 second"><p>{{house.coatOfArms}}</p></dd>
 
-            <dt class="col-sm-3 first">Words</dt>
-            <dd class="col-sm-9 first"><p>{{house.words}}</p></dd>
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="table-header text-center" scope="col" colspan="2">House details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Region</th>
+                <td>{{house.region ? house.region : '-'}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Coat of arms</th>
+                <td>{{house.coatOfArms ? house.coatOfArms : '-'}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Words</th>
+                <td>{{house.words ? house.words : '-' }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Titles</th>
+                <td>
+                  <p *ngIf="house.titles.length === 1 && house.titles[0] === ''">-</p>
+                  <p *ngFor="let title of house.titles">{{title}}</p>
+                </td>
 
-            <dt class="col-sm-3 second">Titles</dt>
-            <dd class="col-sm-9 second"><p *ngFor="let title of house.titles">{{title}}</p></dd>
-        
-            <dt class="col-sm-3 first">Seats</dt>
-            <dd class="col-sm-9 first"><p *ngFor="let seat of house.seats">{{seat}}</p></dd>
-
-            <dt class="col-sm-3 second">Current lord</dt>
-            <dd class="col-sm-9 second"><p>{{currentLord ? currentLord.name : '-'}}</p></dd>
-
-            <dt class="col-sm-3 first">Heir</dt>
-            <dd class="col-sm-9 first"><p>{{heir ? heir.name : '-'}}</p></dd>
-
-            <dt class="col-sm-3 second">Overlord</dt>
-            <dd class="col-sm-9 second"><p>{{overLord ? overLord.name : '-'}}</p></dd>
-
-            <dt class="col-sm-3 first">Ancestral Weapons</dt>
-            <dd class="col-sm-9 first"><p *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</p></dd>
-
-            <dt class="col-sm-3 second">Cadet Branches</dt>
-            <dd class="col-sm-9 second"><p *ngFor="let cadetBranch of house.cadetBranches">{{cadetBranch}}</p></dd>
-
-            <dt class="col-sm-3 first">Sworn member</dt>
-            <dd class="col-sm-9 first"><p *ngFor="let swornMember of swornMembers">{{swornMember.name}}</p></dd>
-        </dl>
+              </tr>
+              <tr>
+                <th scope="row">Seats</th>
+                <td>
+                  <p *ngIf="house.seats.length === 1 && house.seats[0] === ''">-</p>
+                  <p *ngFor="let seat of house.seats">{{seat}}</p>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Current lord</th>
+                <td><p>{{currentLord ? currentLord.name : '-'}}</p></td>
+              </tr>
+              <tr>
+                <th scope="row">Heir</th>
+                <td><p>{{heir ? heir.name : '-'}}</p></td>
+              </tr>
+              <tr>
+                <th scope="row">Overlord</th>
+                <td><p>{{overLord ? overLord.name : '-'}}</p></td>
+              </tr>
+              <tr>
+                <th scope="row">Ancestral Weapons</th>
+                <td>
+                  <p *ngIf="house.ancestralWeapons.length === 1 && house.ancestralWeapons[0] === ''">-</p>
+                  <p *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</p>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Cadet Branches</th>
+                <td>
+                  <p *ngIf="house.cadetBranches.length === 0">-</p>
+                  <p *ngFor="let cadetBranch of house.cadetBranches">{{cadetBranch}}</p>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Sworn member</th>
+                <td>
+                  <p *ngIf="swornMembers.length === 0">-</p>
+                  <p *ngFor="let swornMember of swornMembers">{{swornMember.name}}</p>
+                </td>
+              </tr>
+            </tbody>
+        </table>
 
     </div>
 </div>

@@ -1,0 +1,18 @@
+.card {
+  cursor: pointer;
+  margin-bottom: 1rem;
+
+  &:hover {
+    border-color: darkgrey;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
+
+  .card-title {
+    padding-bottom: 0.25em;
+  }
+}
+
+.card-image-container {
+  background: lightgrey;
+  padding: 2rem;
+}

@@ -1,0 +1,15 @@
+<!-- <app-loading-container [isLoading]="isLoading"> -->
+  <div class="container search-container">
+    <input class="form-control"
+          type="text"
+          placeholder="Search for a House"
+          aria-label="Search"
+          [(ngModel)]="houseName">
+  </div>
+
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let house of houses | search: houseName; let i = index">
+        <app-house-card [house]="house" [imgIndex]="i + 1"></app-house-card>
+      </div>
+    </div>
+<!-- </app-loading-container> -->

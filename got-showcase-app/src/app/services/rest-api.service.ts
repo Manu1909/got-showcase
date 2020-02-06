@@ -17,12 +17,12 @@ export class RestApiService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+  };
 
   constructor(private http: HttpClient) {}
 
-  public getHouses(): Observable<House[]> {
-    return this.http.get<House[]>(API_URL + '/houses')
+  public getHouses(page: number): Observable<House[]> {
+    return this.http.get<House[]>(API_URL + `/houses?page=${page}&pageSize=50`)
       .pipe(
         retry(1),
         catchError(this.handleError)

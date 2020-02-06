@@ -1,6 +1,26 @@
+header {
+  .navigation {
+    cursor: pointer;
+  }
+
+  .title {
+    cursor: pointer;
+  }
+}
+
 main {
-    .jumbotron .container {
-        max-width: 40rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .jumbotron {
+      padding: 2rem;
+      margin-bottom: 0;
+
+      .lead {
+        display: none;
+      }
     }
 
     .banner-container {
@@ -8,8 +28,12 @@ main {
     }
 
     .album-container {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      padding-top: 2rem;
       padding-bottom: 3rem;
-  } 
+  }
 }
 
 footer {
@@ -19,6 +43,7 @@ footer {
     .footer-social-container {
         display: flex;
 
+        .creator-container,
         .icon-container,
         .content-container {
             display: flex;
@@ -36,4 +61,28 @@ footer {
         }
     }
 
+    .creator-container {
+      margin-right: 1.5rem;
+    }
+
 }
+
+@media (min-width: 768px) {
+
+  main {
+    .jumbotron {
+      padding: 2rem;
+      margin-bottom: 0;
+
+      .container {
+        max-width: 40rem;
+      }
+
+     .lead {
+        display: block;
+      }
+    }
+  }
+
+}
+
