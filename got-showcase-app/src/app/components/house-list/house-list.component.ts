@@ -20,6 +20,7 @@ export class HouseListComponent implements OnInit {
   houses: House[] = [];
   houseName: string;
   isLoading: boolean;
+  listCount: number;
 
   constructor(public restApi: RestApiService) { }
 
@@ -41,6 +42,7 @@ export class HouseListComponent implements OnInit {
     this.filterSubject.subscribe(val => {
       if (val) {
         this.filterHouses();
+        this.listCount = this.houses.length;
       }
     });
   }
