@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'got-showcase-app';
+
+  constructor(private loc: Location) {
+  }
+
+  navigateBack() {
+    this.loc.back();
+  }
 }

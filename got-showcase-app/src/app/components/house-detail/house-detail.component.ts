@@ -12,8 +12,9 @@ import { Character } from 'src/app/models/character';
 })
 export class HouseDetailComponent implements OnInit {
 
-  dataIsLoaded: boolean = false;
+  dataIsLoaded = false;
 
+  id: number;
   house: House;
   currentLord: Character;
   heir: Character;
@@ -25,8 +26,8 @@ export class HouseDetailComponent implements OnInit {
    }
 
   ngOnInit() {
-    let id = this.actRoute.snapshot.params['id'];
-    this.loadHouseDetails(id);
+    this.id = this.actRoute.snapshot.params['id'];
+    this.loadHouseDetails(this.id);
   }
 
   ngOnDestroy() {
@@ -34,7 +35,7 @@ export class HouseDetailComponent implements OnInit {
 
   private loadHouseDetails(id: number) {
     this.restApi.getHouseById(id).subscribe((val: House) => {
-      this.house = val; 
+      this.house = val;
       this.loadCurrentLord(this.house.currentLord);
       this.loadHeir(this.house.heir);
       this.loadOverlord(this.house.overlord);
@@ -83,7 +84,7 @@ export class HouseDetailComponent implements OnInit {
     } else {
       this.dataIsLoaded = true;
     }
-  
+
   }
 
 }

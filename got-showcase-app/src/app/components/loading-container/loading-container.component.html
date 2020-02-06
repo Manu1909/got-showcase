@@ -1,0 +1,4 @@
+<div *ngIf="isLoading">
+  <mat-progress-spinner color="red" mode="indeterminate"></mat-progress-spinner>
+</div>
+<ng-content *ngIf="!isLoading"></ng-content>

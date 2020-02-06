@@ -1,5 +1,5 @@
 <div class="container main-container" *ngIf="house">
-    <img src="../../../assets/icons/card-icons/house{{house.url.slice(-2).replace('/', '')}}.png" width="150" />
+    <img src="../../../assets/icons/card-icons/house{{id > 10 ? 3 : id}}.png" width="150" />
     <h3>{{house.name}}</h3>
     <div class="container value-container" *ngIf="dataIsLoaded">
 
