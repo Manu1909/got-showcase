@@ -6,6 +6,15 @@
           aria-label="Search"
           [(ngModel)]="houseName">
   </div>
+  <div class="container filter-container">
+    <mat-chip-list>
+      <span class="house-count"><strong>Count of displayed houses:</strong>  {{listCount}}</span>
+      <span class="house-count"><strong>Regions:</strong></span>
+      <mat-chip [removable]="true">Papadum<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
+      <mat-chip [removable]="true">Naan<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
+      <mat-chip [removable]="true">Dal<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
+    </mat-chip-list>
+  </div>
 
     <div class="row">
       <div class="col-sm-3" *ngFor="let house of houses | search: houseName; let i = index">
