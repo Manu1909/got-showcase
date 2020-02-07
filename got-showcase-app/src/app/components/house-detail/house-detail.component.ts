@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestApiService } from 'src/app/services/rest-api.service';
 import { House } from 'src/app/models/house';
@@ -19,6 +19,7 @@ export class HouseDetailComponent implements OnInit {
   currentLord: Character;
   heir: Character;
   overLord: Character;
+  cadetBranches: House[] = [];
   swornMembers: Character[] = [];
 
   constructor(public actRoute: ActivatedRoute,
@@ -26,11 +27,8 @@ export class HouseDetailComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.id = this.actRoute.snapshot.params['id'];
+    this.id = this.actRoute.snapshot.params.id;
     this.loadHouseDetails(this.id);
-  }
-
-  ngOnDestroy() {
   }
 
   private loadHouseDetails(id: number) {
@@ -39,6 +37,7 @@ export class HouseDetailComponent implements OnInit {
       this.loadCurrentLord(this.house.currentLord);
       this.loadHeir(this.house.heir);
       this.loadOverlord(this.house.overlord);
+      this.loadCadetBranches(this.house.cadetBranches);
       this.loadSwornMembers(this.house.swornMembers);
     });
   }
@@ -73,6 +72,16 @@ export class HouseDetailComponent implements OnInit {
     }
   }
 
+  private loadCadetBranches(urls: string[]) {
+    if (urls.length !== 0) {
+      urls.forEach(url => {
+        this.restApi.getHouseByUrl(url).subscribe((val: House) => {
+          this.cadetBranches.push(val);
+        });
+      });
+    }
+  }
+
   private loadSwornMembers(urls: string[]) {
     if (urls.length !== 0) {
       urls.forEach(url => {
@@ -80,7 +89,7 @@ export class HouseDetailComponent implements OnInit {
           this.swornMembers.push(val);
           this.dataIsLoaded = true;
         });
-      })
+      });
     } else {
       this.dataIsLoaded = true;
     }

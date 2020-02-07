@@ -5,6 +5,17 @@ import { BehaviorSubject } from 'rxjs';
 
 const mainHouses = [7, 15, 16, 17, 34, 62, 109, 143, 145, 169, 196, 214, 229, 274, 362, 378, 395, 398];
 const pageCounter = 10;
+const staticRegions = [
+                 'The North',
+                 'The Vale',
+                 'The Riverlands',
+                 'The Westerlands',
+                 'Iron Islands',
+                 'The Crownlands',
+                 'The Stormlands',
+                 'The Reach',
+                 'Dorne'
+                ];
 
 @Component({
   selector: 'app-house-list',
@@ -18,14 +29,19 @@ export class HouseListComponent implements OnInit {
   filterSubject = new BehaviorSubject<boolean>(false);
 
   houses: House[] = [];
+  dynamicHouses: House[] = [];
   houseName: string;
   isLoading: boolean;
   listCount: number;
+  regions: string[];
 
-  constructor(public restApi: RestApiService) { }
+  constructor(public restApi: RestApiService) {
+    this.regions = [...staticRegions];
+  }
 
   ngOnInit() {
     this.loadHouses();
+    this.houseType = 'small';
   }
 
   private loadHouses() {
@@ -41,28 +57,57 @@ export class HouseListComponent implements OnInit {
 
     this.filterSubject.subscribe(val => {
       if (val) {
+        this.addIdToData();
         this.filterHouses();
-        this.listCount = this.houses.length;
       }
     });
   }
 
-  private filterHouses() {
-    if (this.houseType === 'main') {
-      const tempHouses: House[] = [];
-      for (let i = 0; i < mainHouses.length; i++) {
-        tempHouses.push(this.houses[i]);
-      }
-      this.houses = tempHouses;
-    } else {
-      console.log(this.houses.length);
-      // tslint:disable-next-line: prefer-for-of
-      for (let i = 0; i < mainHouses.length; i++) {
-        this.houses.slice(mainHouses[i], 1);
-      }
-      console.log(this.houses.length);
-      this.isLoading = false;
+  private addIdToData() {
+    for (let i = 0; i < this.houses.length; i++) {
+      this.houses[i].id = i + 1;
     }
+  }
+
+  private filterHouses() {
+    this.dynamicHouses = [...this.houses];
+    this.listCount = this.dynamicHouses.length;
+    // if (this.houseType === 'main') {
+    //   const tempHouses: House[] = [];
+    //   for (let i = 0; i < mainHouses.length; i++) {
+    //     tempHouses.push(this.houses[i]);
+    //   }
+    //   this.houses = tempHouses;
+    // } else {
+    //   // tslint:disable-next-line: prefer-for-of
+    //   for (let i = 0; i < mainHouses.length; i++) {
+    //     this.houses.splice(mainHouses[i - 1], 1);
+    //   }
+    //   this.isLoading = false;
+    // }
+    this.isLoading = false;
+  }
+
+  public removeRegion(region: string) {
+    const index = this.regions.indexOf(region);
+
+    if (index >= 0) {
+      this.regions.splice(index, 1);
+    }
+
+    for (let i = 0; i < this.dynamicHouses.length; i++) {
+      if (this.dynamicHouses[i].region.includes(region)) {
+        this.dynamicHouses.splice(i, 1);
+      }
+    }
+
+    this.listCount = this.dynamicHouses.length;
+  }
+
+  public refreshFilter() {
+    this.regions = [...staticRegions];
+    this.dynamicHouses = [...this.houses];
+    this.listCount = this.dynamicHouses.length;
   }
 
 

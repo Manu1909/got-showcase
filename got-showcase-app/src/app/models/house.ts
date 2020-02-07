@@ -1,4 +1,5 @@
 export class House {
+    id: number;
     url: string;
     name: string;
     region: string;
@@ -13,7 +14,7 @@ export class House {
     founder: string;
     diedOut: string;
     ancestralWeapons: string[];
-    cadetBranches: number[]; 
+    cadetBranches: string[];
     swornMembers: string[];
 }
 

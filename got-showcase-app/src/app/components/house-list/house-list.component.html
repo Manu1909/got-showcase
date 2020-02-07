@@ -1,24 +1,26 @@
-<!-- <app-loading-container [isLoading]="isLoading"> -->
+<app-loading-container [isLoading]="isLoading">
   <div class="container search-container">
     <input class="form-control"
           type="text"
-          placeholder="Search for a House"
+          placeholder="Search for a house"
           aria-label="Search"
           [(ngModel)]="houseName">
   </div>
+  <div class="container information-container">
+    <span class="house-count"><strong>Count of displayed houses:</strong>  {{listCount}}</span>
+    <span class="house-count"><strong>Regions:</strong></span>
+    <button mat-icon-button (click)="refreshFilter()"><mat-icon>refresh</mat-icon></button>
+  </div>
   <div class="container filter-container">
     <mat-chip-list>
-      <span class="house-count"><strong>Count of displayed houses:</strong>  {{listCount}}</span>
-      <span class="house-count"><strong>Regions:</strong></span>
-      <mat-chip [removable]="true">Papadum<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
-      <mat-chip [removable]="true">Naan<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
-      <mat-chip [removable]="true">Dal<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
+      <mat-chip *ngFor="let region of regions"
+                (removed)="removeRegion(region)"
+                [removable]="true">{{region}}<mat-icon matChipRemove *ngIf="true">cancel</mat-icon></mat-chip>
     </mat-chip-list>
   </div>
-
-    <div class="row">
-      <div class="col-sm-3" *ngFor="let house of houses | search: houseName; let i = index">
-        <app-house-card [house]="house" [imgIndex]="i + 1"></app-house-card>
+    <div class="row card-container">
+      <div class="col-sm-3" *ngFor="let house of dynamicHouses | search: houseName; let i = index">
+        <app-house-card [house]="house" [houseType]="houseType"></app-house-card>
       </div>
     </div>
-<!-- </app-loading-container> -->
+</app-loading-container>

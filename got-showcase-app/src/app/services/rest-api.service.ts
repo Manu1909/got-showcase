@@ -29,13 +29,12 @@ export class RestApiService {
       );
   }
 
-
   public getHouseById(id: number): Observable<House> {
     return this.http.get<House>(API_URL + '/houses/' + id)
       .pipe(
         retry(1),
         catchError(this.handleError)
-      )
+      );
   }
 
   public getHouseByUrl(url: string): Observable<House> {
@@ -43,7 +42,7 @@ export class RestApiService {
       .pipe(
         retry(1),
         catchError(this.handleError)
-      )
+      );
   }
 
   public getCharacterByUrl(url: string): Observable<Character> {
@@ -51,7 +50,7 @@ export class RestApiService {
       .pipe(
         retry(1),
         catchError(this.handleError)
-      )
+      );
   }
 
 

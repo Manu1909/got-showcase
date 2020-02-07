@@ -9,7 +9,7 @@ import { House } from 'src/app/models/house';
 export class HouseCardComponent implements OnInit {
 
   @Input() house: House;
-  @Input() imgIndex: number;
+  @Input() houseType: string;
 
   constructor() { }
 
