@@ -21,7 +21,6 @@ export class SearchPipe implements PipeTransform {
     return houses.filter(val => {
       return val.name.toLocaleLowerCase().includes(searchText);
     });
-    
   }
 
 }
