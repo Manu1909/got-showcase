@@ -1,12 +1,14 @@
 <div class="container overview-container">
     <div class="container text-center shadow p-3 mb-5 bg-white rounded detail-container fire"
-       routerLink="/house-list/" >
+       routerLink="/house-list/" 
+       (click)="addTypeLocalStorage('main')">
         <img src="../../../assets/icons/general/bonfire.svg" width="50" />
         <h4>The great houses</h4>
         <p class="text-muted">Navigate to this page to display all main houses within the Game of Thrones universe</p>
     </div>
     <div class="container text-center shadow p-3 mb-5 bg-white rounded detail-container ice"
-       routerLink="/house-list/">
+       routerLink="/house-list/"
+       (click)="addTypeLocalStorage('small')">
         <img src="../../../assets/icons/general/snow.svg" width="50" />
         <h4>Small Houses</h4>
         <p class="text-muted">Navigate to this page to display all small houses within the Game of Thrones universe</p>

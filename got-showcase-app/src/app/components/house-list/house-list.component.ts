@@ -41,7 +41,7 @@ export class HouseListComponent implements OnInit {
 
   ngOnInit() {
     this.loadHouses();
-    this.houseType = 'small';
+    this.houseType = window.localStorage.getItem('listType');;
   }
 
   private loadHouses() {
@@ -71,20 +71,21 @@ export class HouseListComponent implements OnInit {
 
   private filterHouses() {
     this.dynamicHouses = [...this.houses];
+  
+    if (this.houseType === 'main') {
+      const tempHouses: House[] = [];
+      for (let i = 1; i < mainHouses.length - 1; i++) {
+        tempHouses.push(this.houses[i]);
+      }
+      this.dynamicHouses = tempHouses;
+    } else {
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < mainHouses.length; i++) {
+        this.dynamicHouses.splice(mainHouses[i - 1], 1);
+      }
+      this.isLoading = false;
+    }
     this.listCount = this.dynamicHouses.length;
-    // if (this.houseType === 'main') {
-    //   const tempHouses: House[] = [];
-    //   for (let i = 0; i < mainHouses.length; i++) {
-    //     tempHouses.push(this.houses[i]);
-    //   }
-    //   this.houses = tempHouses;
-    // } else {
-    //   // tslint:disable-next-line: prefer-for-of
-    //   for (let i = 0; i < mainHouses.length; i++) {
-    //     this.houses.splice(mainHouses[i - 1], 1);
-    //   }
-    //   this.isLoading = false;
-    // }
     this.isLoading = false;
   }
 
