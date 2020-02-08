@@ -41,7 +41,7 @@ export class HouseListComponent implements OnInit {
 
   ngOnInit() {
     this.loadHouses();
-    this.houseType = window.localStorage.getItem('listType');;
+    this.houseType = window.localStorage.getItem('listType');
   }
 
   private loadHouses() {
@@ -70,16 +70,15 @@ export class HouseListComponent implements OnInit {
   }
 
   private filterHouses() {
-    this.dynamicHouses = [...this.houses];
-  
     if (this.houseType === 'main') {
-      const tempHouses: House[] = [];
-      for (let i = 1; i < mainHouses.length - 1; i++) {
-        tempHouses.push(this.houses[i]);
+      for (let i = 0; i < mainHouses.length; i++) {
+        const mainHouse = this.houses.filter(el => {
+          return el.id === mainHouses[i];
+        });
+        this.dynamicHouses.push(mainHouse[0]);
       }
-      this.dynamicHouses = tempHouses;
     } else {
-      // tslint:disable-next-line: prefer-for-of
+      this.dynamicHouses = [...this.houses];
       for (let i = 0; i < mainHouses.length; i++) {
         this.dynamicHouses.splice(mainHouses[i - 1], 1);
       }
@@ -107,8 +106,8 @@ export class HouseListComponent implements OnInit {
 
   public refreshFilter() {
     this.regions = [...staticRegions];
-    this.dynamicHouses = [...this.houses];
-    this.listCount = this.dynamicHouses.length;
+    this.dynamicHouses = [];
+    this.filterHouses();
   }
 
 

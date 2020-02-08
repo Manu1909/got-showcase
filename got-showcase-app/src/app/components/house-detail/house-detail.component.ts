@@ -16,6 +16,7 @@ export class HouseDetailComponent implements OnInit {
 
   id: number;
   house: House;
+  houseType: string;
   currentLord: Character;
   heir: Character;
   overLord: Character;
@@ -29,6 +30,7 @@ export class HouseDetailComponent implements OnInit {
   ngOnInit() {
     this.id = this.actRoute.snapshot.params.id;
     this.loadHouseDetails(this.id);
+    this.houseType = window.localStorage.getItem('listType');
   }
 
   private loadHouseDetails(id: number) {
