@@ -53,12 +53,10 @@ main {
     }
 
     .album-container {
-      display: flex;
-      flex: 1 1 auto;
-      flex-shrink: 0;
       align-items: center;
+      display: flex;
       justify-content: center;
-    
+      flex: 1;
       padding-top: 2rem;
       padding-bottom: 3rem;
   }
