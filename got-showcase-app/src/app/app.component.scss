@@ -1,9 +1,16 @@
 header {
 
   box-shadow: 0 5px 5px -5px #333;
+  z-index: 1;
 
   .navigation {
     cursor: pointer;
+  }
+
+  .navbar {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
   }
 
   .title {
@@ -46,18 +53,34 @@ main {
 }
 
 footer {
+    z-index: 1;
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 0.75rem;
     box-shadow: 0 -5px 5px -5px #333;
 
-    .license-container {
+    .license-container,
+    .icon-container,
+    .content-container {
       display: none;
+    }
+
+    .creator-container {
+      a {
+        margin-right: 1em;
+      }
     }
 
 }
 
 @media (min-width: 768px) {
+
+  header {
+    .navbar {
+      display: block;
+      text-align: unset;
+    }
+  }
 
   main {
 
