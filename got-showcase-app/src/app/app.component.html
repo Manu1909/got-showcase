@@ -1,15 +1,13 @@
 <header>
   <nav class="navbar navbar-dark bg-dark">
+    <img src="../assets/icons/general/header_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
     <a class="navbar-brand title" routerLink="/houses">
-      <img src="../assets/icons/general/header_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Game of Thrones - Showcase
     </a>
     <!-- <a routerLink="/houses">
       <img src="../assets/icons/home.svg" width="30" height="30" class="d-inline-block align-top" alt="">
     </a> -->
-    <a (click)="navigateBack()" class="navigation" *ngIf="">
-      <img src="../assets/icons/general/arrow-back-outline.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    </a>
+    <button [ngStyle]="{'visibility': router.url !== '/houses' ? 'visible' : 'hidden'}" mat-icon-button (click)="navigateBack()"><mat-icon>arrow_back</mat-icon></button>
   </nav>
 </header>
 

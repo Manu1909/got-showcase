@@ -4,9 +4,10 @@
 
 .information-container {
   padding-bottom: 1rem;
+  text-align: unset;
 
   .house-count {
-    margin-right: 1.5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -20,19 +21,35 @@
 
 .card-container {
   border-bottom: 1px solid lightgray;
-  border-left: 1px solid lightgray;
+
+  .col-sm-3 {
+    width: 50%;
+  }
 }
 
 
 @media (min-width: 768px) {
+
   .search-container {
       padding-left: 10rem;
       padding-right: 10rem;
+  }
+
+  .information-container {
+    text-align: center;
+
+    .house-count {
+      margin-right: 1.5rem;
+    }
   }
 
   .row {
     padding-top: 1rem;
     max-height: 600px;
     overflow-y: auto;
+  }
+
+  .col-sm-3 {
+    width: 100%;
   }
 }

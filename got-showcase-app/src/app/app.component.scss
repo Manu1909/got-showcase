@@ -1,9 +1,26 @@
 header {
 
   box-shadow: 0 5px 5px -5px #333;
+  z-index: 1;
 
   .navigation {
     cursor: pointer;
+  }
+
+  .navbar {
+    display: flex;
+    padding-left: 7px;
+    padding-right: 7px;
+
+    a {
+      margin-right: 0px;
+      flex: 1;
+      text-align: center;
+    }
+
+    button {
+      color: white;
+    }
   }
 
   .title {
@@ -46,13 +63,22 @@ main {
 }
 
 footer {
+    z-index: 1;
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 0.75rem;
     box-shadow: 0 -5px 5px -5px #333;
 
-    .license-container {
+    .license-container,
+    .icon-container,
+    .content-container {
       display: none;
+    }
+
+    .creator-container {
+      a {
+        margin-right: 1em;
+      }
     }
 
 }

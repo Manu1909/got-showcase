@@ -10,6 +10,7 @@ export class HouseOverviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    window.localStorage.setItem('listType', '');
   }
 
   public addTypeLocalStorage(type: string) {
