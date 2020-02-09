@@ -1,10 +1,9 @@
-<div class="card" routerLink="/house-detail/{{house.id}}">
+<div class="card" routerLink="/house-detail/{{house?.id}}">
   <div class="bd-placeholder-img card-img-top card-image-container">
-    <!-- <img src="../../../assets/icons/card-icons/house{{house.url.slice(-2).replace('/', '')}}.png" width="100%" /> -->
-    <img src="../../../assets/icons/card-icons/{{houseType}}/house{{house.id > 10 && houseType === 'small' ? 3 : house.id}}.png" width="100%" />
+    <img src="../../../assets/icons/card-icons/{{houseType}}/house{{house?.id > 10 && houseType === 'small' ? 3 : house?.id}}.png" width="100%" />
   </div>
   <div class="card-body">
-    <h5 class="card-title text-truncate">{{house.name.replace('House', '')}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted text-truncate">{{house.region ? house.region : '-'}}</h6>
+    <h5 class="card-title text-truncate">{{house?.name.replace('House', '')}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted text-truncate">{{house?.region ? house?.region : '-'}}</h6>
   </div>
 </div>
