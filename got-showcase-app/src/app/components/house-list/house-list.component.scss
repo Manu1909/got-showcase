@@ -4,6 +4,7 @@
 
 .information-container {
   padding-bottom: 1rem;
+  text-align: unset;
 
   .house-count {
     margin-right: 0.5rem;
@@ -28,9 +29,6 @@
 
 
 @media (min-width: 768px) {
-  .card-container {
-    border-left: 1px solid lightgray;
-  }
 
   .search-container {
       padding-left: 10rem;
@@ -38,6 +36,8 @@
   }
 
   .information-container {
+    text-align: center;
+
     .house-count {
       margin-right: 1.5rem;
     }

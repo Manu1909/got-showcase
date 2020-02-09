@@ -95,11 +95,9 @@ export class HouseListComponent implements OnInit {
       this.regions.splice(index, 1);
     }
 
-    for (let i = 0; i < this.dynamicHouses.length; i++) {
-      if (this.dynamicHouses[i].region.includes(region)) {
-        this.dynamicHouses.splice(i, 1);
-      }
-    }
+    this.dynamicHouses = this.dynamicHouses.filter(el => {
+      return el.region !== region;
+    });
 
     this.listCount = this.dynamicHouses.length;
   }
