@@ -18,11 +18,13 @@
 
     &.fire:hover {
       border-color: orange;
+      box-shadow: 0 .125rem .25rem orange!important;
       cursor: pointer;
     }
 
     &.ice:hover {
-        border-color: paleturquoise;
+        border-color: #96D1DD;
+        box-shadow: 0 .125rem .25rem #96D1DD!important;
         cursor: pointer;
     }
 }

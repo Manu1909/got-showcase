@@ -40,8 +40,8 @@ export class HouseListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadHouses();
     this.houseType = window.localStorage.getItem('listType');
+    this.loadHouses();
   }
 
   private loadHouses() {

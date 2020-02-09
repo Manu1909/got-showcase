@@ -8,9 +8,19 @@ header {
   }
 
   .navbar {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
+    display: flex;
+    padding-left: 7px;
+    padding-right: 7px;
+
+    a {
+      margin-right: 0px;
+      flex: 1;
+      text-align: center;
+    }
+
+    button {
+      color: white;
+    }
   }
 
   .title {
@@ -74,13 +84,6 @@ footer {
 }
 
 @media (min-width: 768px) {
-
-  header {
-    .navbar {
-      display: block;
-      text-align: unset;
-    }
-  }
 
   main {
 
