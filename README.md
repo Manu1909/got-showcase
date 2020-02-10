@@ -38,7 +38,7 @@ https://awoiaf.westeros.org/index.php/List_of_houses
 
 # Presentation
 
-Follow the link for the presentation - [Presentation](http://htmlpreview.github.io/?)
+Follow the link for the presentation - [Presentation](http://htmlpreview.github.io/?https://github.com/Manu1909/got-showcase/blob/master/presentation/index.html)
 
 # License 
 This is licensed by the MIT license - for details see: [License](https://opensource.org/licenses/MIT)
