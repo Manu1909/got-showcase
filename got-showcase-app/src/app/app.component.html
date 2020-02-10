@@ -4,9 +4,6 @@
     <a class="navbar-brand title" routerLink="/houses">
       Game of Thrones - Showcase
     </a>
-    <!-- <a routerLink="/houses">
-      <img src="../assets/icons/home.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    </a> -->
     <button [ngStyle]="{'visibility': router.url !== '/houses' ? 'visible' : 'hidden'}" mat-icon-button (click)="navigateBack()"><mat-icon>arrow_back</mat-icon></button>
   </nav>
 </header>
@@ -14,15 +11,18 @@
 <main role="main">
   <section class="jumbotron jumbotron-fluid text-center">
     <div class="container d-inline-block align-top" >
-      <div class="cotainer banner-container">
-        <img src="../assets/banner/got_logo.svg">
-      </div>
-      <h2>House collection</h2>
-      <p class="lead text-muted">
-        This application presents all houses of Game of Thrones.
-        By clicking on a single house the application shows a information page with detailed information
-        to the specific house.
-      </p>
+      <div class="conainer" [@openClose]="isOpen ? 'open' : 'closed'">
+        <div class="cotainer banner-container">
+          <img src="../assets/banner/got_logo.svg">
+        </div>
+        <h2>House collection</h2>
+        <p class="lead text-muted">
+          This application presents all houses of Game of Thrones.
+          By clicking on a single house the application shows a information page with detailed information
+          to the specific house.
+        </p>
+        </div>
+      <mat-icon class="move-icon" (click)="moveLeadText()">keyboard_arrow_down</mat-icon>
     </div>
   </section>
   <div class="container album-container">

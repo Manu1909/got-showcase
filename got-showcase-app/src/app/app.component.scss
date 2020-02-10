@@ -113,6 +113,13 @@ footer {
         width: 300px;
       }
    }
+
+    .move-icon {
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   footer {
