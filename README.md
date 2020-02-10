@@ -5,17 +5,25 @@ to the user. By clicking on one house there should be further information on a d
 
 # Start and run application
 
-Local web server:
+**Local web server:**
+
+**Important** - Node.js and npm has to be installed on the running machine
+
+**Angular is installed:** 
 
 1. If Angular is installed run `ng build`, within the app source folder, to build the project
-2. If Angular is not installed go to the `/release` folder and copy the resource to a local folder. (Ignore steps 3-4)
 3. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 4. Copy all files within the `dist/`folder to a local directory
-5. Make sure you have Node.js and npm installed
 6. Run `npx http-serve` in the local directory
 7. Navigate to `http://localhost:8080/`
 
-Run angular application in dev mode:
+**Without angular installed:**
+
+1. Go to the `/release` folder within this repo and copy the resource to a local folder.
+2. Run `npx http-serve` in the local directory
+3. Navigate to `http://localhost:8080/`
+
+**Run angular application in dev mode:**
 
 1. Run `ng serve`, within the app source folder, for a dev server. 
 2. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
