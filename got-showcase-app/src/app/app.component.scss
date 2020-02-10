@@ -89,7 +89,8 @@ footer {
 
   main {
 
-    overflow-y: unset;
+    flex: 1 1 auto;
+    flex-shrink: 0;
 
     .jumbotron {
       padding: 2rem;
