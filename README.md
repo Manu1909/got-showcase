@@ -38,6 +38,8 @@ https://awoiaf.westeros.org/index.php/List_of_houses
 
 # Presentation
 
+The presentation is created with [reveal.js](https://revealjs.com/#/)
+
 Follow the link for the presentation - [Presentation](http://htmlpreview.github.io/?https://github.com/Manu1909/got-showcase/blob/master/presentation/index.html)
 
 # License 
