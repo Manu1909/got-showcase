@@ -36,6 +36,10 @@ https://anapioficeandfire.com/
 Source of all picture resources within the app
 https://awoiaf.westeros.org/index.php/List_of_houses
 
+# Presentation
+
+Follow the link for the presentation - [Presentation](http://htmlpreview.github.io/?)
+
 # License 
 This is licensed by the MIT license - for details see: [License](https://opensource.org/licenses/MIT)
 
