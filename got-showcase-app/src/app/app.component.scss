@@ -58,7 +58,7 @@ main {
       flex-shrink: 0;
       justify-content: center;
       align-items: center;
-    
+
       padding-top: 2rem;
       padding-bottom: 3rem;
   }
@@ -89,7 +89,7 @@ footer {
 
   main {
 
-    overflow-y: none;
+    overflow-y: unset;
 
     .jumbotron {
       padding: 2rem;
