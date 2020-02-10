@@ -57,8 +57,10 @@ export class HouseListComponent implements OnInit {
 
     this.filterSubject.subscribe(val => {
       if (val) {
-        this.addIdToData();
-        this.filterHouses();
+        setTimeout(() => {
+          this.addIdToData();
+          this.filterHouses();
+        }, 2000);
       }
     });
   }
