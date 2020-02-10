@@ -1,7 +1,7 @@
 # got-showcase
 
 This project contains an angular application. This application display all houses of Game of Thrones in an overview 
-to the user. By clicking on one house there should be further information on a details page.
+to the user. By clicking on one house there are further information on a details page.
 
 # Start and run application
 
